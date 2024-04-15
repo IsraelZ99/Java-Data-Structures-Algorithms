@@ -20,6 +20,23 @@ class LinkedList {
     }
 
     /**
+     * Get a node by index
+     * @param index Index that you want search
+     * @return The entire node
+     */
+    public Node get(int index) {
+        // Check if that the index doesn't is out range
+        if (index < 0 || index >= length) return null;
+        // Create variable to start the search of the index from head
+        Node temp = head;
+        for (int iteration = 0; iteration < index; iteration++) {
+            // Set temp to the next node that is pointing
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    /**
      * Insert new node to the end of the linked list
      *
      * @param value it's the value/number of the node
@@ -66,6 +83,7 @@ class LinkedList {
 
     /**
      * Remove the first Node of the list
+     *
      * @return the Node that it was deleted
      */
     public Node removeFirst() {

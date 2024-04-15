@@ -2,10 +2,24 @@ package linkedlist;
 
 public class Main {
     public static void main(String[] args) {
-        testRemoveFirst();
+        testGet();
+        // testRemoveFirst();
         // testPrepend();
         // testAppend();
         // testRemoveLast();
+    }
+
+    public static void testGet() {
+        LinkedList myLinkedList = new LinkedList(0);
+        myLinkedList.append(1);
+        myLinkedList.append(2);
+        myLinkedList.append(3);
+
+        System.out.println("Getting a node");
+        System.out.println(myLinkedList.get(2).value + "\n");
+
+        System.out.println("\n*** Print Linked List ***");
+        myLinkedList.printLIst();
     }
 
     public static void testRemoveFirst() {
