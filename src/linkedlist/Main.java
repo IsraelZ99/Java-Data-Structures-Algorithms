@@ -19,7 +19,7 @@ public class Main {
         myLinkedList.append(7);
 
         System.out.println("*** Removing node ***");
-        myLinkedList.remove(2);
+        System.out.println(myLinkedList.remove(2));
 
         System.out.println("\n*** Print Linked List ***");
         myLinkedList.printLIst();
