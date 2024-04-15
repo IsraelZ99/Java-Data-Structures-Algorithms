@@ -109,7 +109,7 @@ class LinkedList {
      */
     public boolean insert(int index, int value) {
         // Check if that the index doesn't is out range
-        if (index < 0 || index >= length) return false;
+        if (index < 0 || index > length) return false;
         // If it is necessary insert the node at the beginning, uses prepend method
         if (index == 0) {
             prepend(value);
