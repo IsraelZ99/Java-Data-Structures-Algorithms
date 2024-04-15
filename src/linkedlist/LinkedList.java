@@ -28,7 +28,9 @@ class LinkedList {
         Node newNode = new Node(value);
         // Check if the list is empty
         if (length == 0) {
+            // Set head to point to newNode
             head = newNode;
+            // Set tail to point to newNode
             tail = newNode;
         } else {
             // Point the actually last node, to the new Node
@@ -41,7 +43,29 @@ class LinkedList {
     }
 
     /**
+     * Insert new node at the start of the linked list
+     * @param value it's the value/number of the node
+     */
+    public void prepend(int value) {
+        Node newNode = new Node(value);
+        // Check if the list is empty
+        if (length == 0) {
+            // Set head to point to newNode
+            head = newNode;
+            // Set tail to point to newNode
+            tail = newNode;
+        } else {
+            // Point the new Node to the actually head
+            newNode.next = head;
+            // Set head point to the new Node
+            head = newNode;
+        }
+        length++;
+    }
+
+    /**
      * Remove the last Node of the list
+     *
      * @return the Node that it was deleted
      */
     public Node removeLast() {

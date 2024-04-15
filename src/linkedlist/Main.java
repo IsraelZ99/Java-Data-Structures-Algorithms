@@ -2,12 +2,19 @@ package linkedlist;
 
 public class Main {
     public static void main(String[] args) {
-        testAppend();
-        testRemoveLast();
+        testPrepend();
+        // testAppend();
+        // testRemoveLast();
     }
 
     public static void testPrepend() {
+        LinkedList myLinkedList = new LinkedList(2);
+        myLinkedList.append(3);
 
+        myLinkedList.prepend(1);
+
+        System.out.println("\n*** Print Linked List ***");
+        myLinkedList.printLIst();
     }
 
     public static void testAppend() {
