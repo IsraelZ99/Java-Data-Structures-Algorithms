@@ -102,13 +102,14 @@ class LinkedList {
 
     /**
      * Insert new node at a particular index
+     *
      * @param index Index where the node will insert
      * @param value It's the value/number of the node
      * @return If it was possible to insert the node
      */
     public boolean insert(int index, int value) {
         // Check if that the index doesn't is out range
-        if (index < 0 || index > length) return false;
+        if (index < 0 || index >= length) return false;
         // If it is necessary insert the node at the beginning, uses prepend method
         if (index == 0) {
             prepend(value);
