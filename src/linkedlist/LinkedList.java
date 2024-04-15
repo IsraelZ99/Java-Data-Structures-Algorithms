@@ -133,6 +133,30 @@ class LinkedList {
     }
 
     /**
+     * Remove node from the list
+     * @param index Index where the node what will be deleted is
+     * @return The node that already was deleted
+     */
+    public Node remove(int index) {
+        // Check if that the index doesn't is out range
+        if (index < 0 || index >= length) return null;
+        // If it is necessary delete the node at the beginning, uses remove first method
+        if (index == 0) return removeFirst();
+        // If it is necessary delete the node at the end, uses remove last method
+        if (index == length - 1) return removeLast();
+        // Get the before node where is the node will be deleting
+        Node prev = get(index - 1);
+        // Set temp node to point to the node after the one to be deleted
+        Node temp = prev.next;
+        // Set prev node, to point to next node that the node will be deleting pointed
+        prev.next = temp.next;
+        // Set next to null, to point to nothing
+        temp.next = null;
+        length--;
+        return temp;
+    }
+
+    /**
      * Remove the first Node of the list
      *
      * @return the Node that it was deleted
