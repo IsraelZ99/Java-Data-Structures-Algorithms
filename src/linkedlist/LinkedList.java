@@ -20,7 +20,25 @@ class LinkedList {
     }
 
     /**
+     * Set the value of a specific node
+     * @param index Index of the node
+     * @param value New value of the node
+     * @return If it was possible to set the node
+     */
+    public boolean set(int index, int value) {
+        // Set temp to pointing to the node
+        Node temp = get(index);
+        if (temp != null) {
+            // Setting the value of the pointing node
+            temp.value = value;
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Get a node by index
+     *
      * @param index Index that you want search
      * @return The entire node
      */
