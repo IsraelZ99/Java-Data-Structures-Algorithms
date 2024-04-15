@@ -44,6 +44,7 @@ class LinkedList {
 
     /**
      * Insert new node at the start of the linked list
+     *
      * @param value it's the value/number of the node
      */
     public void prepend(int value) {
@@ -61,6 +62,26 @@ class LinkedList {
             head = newNode;
         }
         length++;
+    }
+
+    /**
+     * Remove the first Node of the list
+     * @return the Node that it was deleted
+     */
+    public Node removeFirst() {
+        if (length == 0) return null;
+        Node temp = head;
+        // Head is set point to the node that at present head is pointing
+        head = head.next;
+        // Set next to null, to point to nothing
+        temp.next = null;
+        length--;
+        // This if statement is used when the Linked List has only one item
+        // This is because tail it didn't set to null
+        if (length == 0) {
+            tail = null;
+        }
+        return temp;
     }
 
     /**

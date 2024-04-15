@@ -2,9 +2,23 @@ package linkedlist;
 
 public class Main {
     public static void main(String[] args) {
-        testPrepend();
+        testRemoveFirst();
+        // testPrepend();
         // testAppend();
         // testRemoveLast();
+    }
+
+    public static void testRemoveFirst() {
+        LinkedList myLinkedList = new LinkedList(2);
+        myLinkedList.append(1);
+
+        System.out.println("\n*** Print Linked List ***");
+        myLinkedList.printLIst();
+
+        System.out.println("\n*** Removing the last items ***");
+        System.out.println(myLinkedList.removeFirst().value);
+        System.out.println(myLinkedList.removeFirst().value);
+        System.out.println(myLinkedList.removeFirst());
     }
 
     public static void testPrepend() {
