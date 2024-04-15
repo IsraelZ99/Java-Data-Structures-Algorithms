@@ -2,12 +2,24 @@ package linkedlist;
 
 public class Main {
     public static void main(String[] args) {
-        testSet();
+        testInsert();
+        // testSet();
         // testGet();
         // testRemoveFirst();
         // testPrepend();
         // testAppend();
         // testRemoveLast();
+    }
+
+    public static void testInsert() {
+        LinkedList myLinkedList = new LinkedList(0);
+        myLinkedList.append(2);
+
+        System.out.println("*** Inserting new node ***");
+        System.out.println(myLinkedList.insert(1, 1));
+
+        System.out.println("\n*** Print Linked List ***");
+        myLinkedList.printLIst();
     }
 
     public static void testSet() {

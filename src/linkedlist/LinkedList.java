@@ -21,6 +21,7 @@ class LinkedList {
 
     /**
      * Set the value of a specific node
+     *
      * @param index Index of the node
      * @param value New value of the node
      * @return If it was possible to set the node
@@ -80,7 +81,7 @@ class LinkedList {
     /**
      * Insert new node at the start of the linked list
      *
-     * @param value it's the value/number of the node
+     * @param value It's the value/number of the node
      */
     public void prepend(int value) {
         Node newNode = new Node(value);
@@ -97,6 +98,37 @@ class LinkedList {
             head = newNode;
         }
         length++;
+    }
+
+    /**
+     * Insert new node at a particular index
+     * @param index Index where the node will insert
+     * @param value It's the value/number of the node
+     * @return If it was possible to insert the node
+     */
+    public boolean insert(int index, int value) {
+        // Check if that the index doesn't is out range
+        if (index < 0 || index > length) return false;
+        // If it is necessary insert the node at the beginning, uses prepend method
+        if (index == 0) {
+            prepend(value);
+            return true;
+        }
+        // If it is necessary insert the node at the end, uses append method
+        if (index == length) {
+            append(value);
+            return true;
+        }
+        // Create the new node with the value
+        Node newNode = new Node(value);
+        // Set temp node to point to the 1 index before the new will be inserting
+        Node temp = get(index - 1);
+        // Set new node, to point to the node that it is in the index where the new will be inserting
+        newNode.next = temp.next;
+        // Set temp nod, to point to the new node
+        temp.next = newNode;
+        length++;
+        return true;
     }
 
     /**
