@@ -2,7 +2,8 @@ package linkedlist;
 
 public class Main {
     public static void main(String[] args) {
-        testRemove();
+        testReverse();
+        // testRemove();
         // testInsert();
         // testSet();
         // testGet();
@@ -117,6 +118,19 @@ public class Main {
         System.out.println(myLinkedList.removeLast().value);
         // (0) items - Return null
         System.out.println(myLinkedList.removeLast());
+    }
+
+    public static void testReverse() {
+        LinkedList myLinkedList = new LinkedList(1);
+        myLinkedList.append(2);
+        myLinkedList.append(3);
+        myLinkedList.append(4);
+
+        System.out.println("\n*** Reversing Linked List ***");
+        myLinkedList.reverse();
+
+        System.out.println("\n*** Print Linked List ***");
+        myLinkedList.printLIst();
     }
 
 }

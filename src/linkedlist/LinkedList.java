@@ -134,6 +134,7 @@ class LinkedList {
 
     /**
      * Remove node from the list
+     *
      * @param index Index where the node what will be deleted is
      * @return The node that already was deleted
      */
@@ -210,6 +211,32 @@ class LinkedList {
         }
         // Return the Node that already was deleted from the Linked List
         return temp;
+    }
+
+    /**
+     * Reverse the linked list, I mean, the linked list will be inverting
+     */
+    public void reverse() {
+        // Set temp to point the head now
+        Node temp = head;
+        // Reverse: Now point the head to tail
+        head = tail;
+        // Now point the tail to temp node
+        tail = temp;
+        // Create node to after point the after node of temp
+        Node after;
+        // Create node to point nothing, this node will be before temp
+        Node before = null;
+        for (int iteration = 0; iteration < length; iteration++) {
+            // Set after, to point the next node in the current order
+            after = temp.next;
+            // Point temp node to before node (in this start the reverse)
+            temp.next = before;
+            // Set before, to point to the temp node
+            before = temp;
+            // Set temp, to point the after node
+            temp = after;
+        }
     }
 
     /**
