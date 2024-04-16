@@ -22,6 +22,7 @@ class DoublyLinkedList {
 
     /**
      * Insert node at the end of the list
+     *
      * @param value it's the value/number of the node
      */
     public void append(int value) {
@@ -43,7 +44,31 @@ class DoublyLinkedList {
     }
 
     /**
+     * Insert node at the end of the list
+     *
+     * @param value it's the value/number of the node
+     */
+    public void prepend(int value) {
+        Node newNode = new Node(value);
+        if (length == 0) {
+            // Set head to point to the new node
+            head = newNode;
+            // Set tail to point to the new node
+            tail = newNode;
+        } else {
+            // Set the new node to point to the current head (before inserting)
+            newNode.next = head;
+            // Set the head previous property, to point to the new node
+            head.prev = newNode;
+            // Set head to point to the new node
+            head = newNode;
+        }
+        length++;
+    }
+
+    /**
      * Remove the last item of the list
+     *
      * @return the node that was deleted
      */
     public Node removeLast() {

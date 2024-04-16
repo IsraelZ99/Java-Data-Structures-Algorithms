@@ -4,7 +4,18 @@ public class Main {
     public static void main(String[] args) {
         // testConstructor();
         //testAppend();
-        testRemoveLast();
+        // testRemoveLast();
+        testPrepend();
+    }
+
+    public static void testPrepend() {
+        DoublyLinkedList myDLL = new DoublyLinkedList(2);
+        myDLL.append(3);
+
+        myDLL.prepend(1);
+
+        System.out.println("*** Print the list ***");
+        myDLL.printList();
     }
 
     public static void testRemoveLast() {
