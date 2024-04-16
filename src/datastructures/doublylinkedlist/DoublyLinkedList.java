@@ -20,6 +20,28 @@ class DoublyLinkedList {
         length = 1;
     }
 
+    /**
+     * Insert node at the end of the list
+     * @param value it's the value/number of the node
+     */
+    public void append(int value) {
+        Node newNode = new Node(value);
+        if (length == 0) {
+            // Set head to point new node
+            head = newNode;
+            // Set tail to point new node
+            tail = newNode;
+        } else {
+            // Set tail, to point to the new node
+            tail.next = newNode;
+            // Set new node to point to the current tail (before the inserting)
+            newNode.prev = tail;
+            // Set tail point to new Node
+            tail = newNode;
+        }
+        length++;
+    }
+
     public void printList() {
         Node temp = head;
         while (temp != null) {

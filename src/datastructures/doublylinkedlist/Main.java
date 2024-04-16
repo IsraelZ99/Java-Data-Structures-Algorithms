@@ -2,7 +2,14 @@ package datastructures.doublylinkedlist;
 
 public class Main {
     public static void main(String[] args) {
-        testConstructor();
+        // testConstructor();
+        testAppend();
+    }
+
+    public static void testAppend() {
+        DoublyLinkedList myDLL = new DoublyLinkedList(1);
+        myDLL.append(2);
+        myDLL.printList();
     }
 
     public static void testConstructor() {
