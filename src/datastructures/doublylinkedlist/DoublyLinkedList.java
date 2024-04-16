@@ -21,6 +21,35 @@ class DoublyLinkedList {
     }
 
     /**
+     * Get a node by index.
+     * To do this, compare if the index that you want to search is in the first half
+     * or in the second half to do this seek more efficiently
+     *
+     * @param index Index that you want search
+     * @return The entire node
+     */
+    public Node get(int index) {
+        if (length == 0) return null;
+        // Point temp to the start of the list
+        Node temp = head;
+        // Compare if the index to get is in the first half
+        if (index < length / 2) {
+            // Iterate the list from left to right
+            for (int iteration = 0; iteration < index; iteration++) {
+                temp = temp.next;
+            }
+        } else {
+            // Set temp to point to the end of the list
+            temp = tail;
+            // Iterate the list from right to left
+            for (int iteration = length - 1; iteration > index; iteration--) {
+                temp = temp.prev;
+            }
+        }
+        return temp;
+    }
+
+    /**
      * Insert node at the end of the list
      *
      * @param value it's the value/number of the node

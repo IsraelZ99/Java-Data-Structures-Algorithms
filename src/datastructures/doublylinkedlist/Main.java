@@ -6,7 +6,22 @@ public class Main {
         // testAppend();
         // testRemoveLast();
         // testPrepend();
-        testRemoveFirst();
+        // testRemoveFirst();
+        testGet();
+    }
+
+    public static void testGet() {
+        DoublyLinkedList myDLL = new DoublyLinkedList(0);
+        myDLL.append(1);
+        myDLL.append(2);
+        myDLL.append(3);
+
+        System.out.println("*** Getting nodes ***");
+        System.out.println(myDLL.get(1).value);
+        System.out.println(myDLL.get(2).value);
+
+        System.out.println("\n*** Print the list ***");
+        myDLL.printList();
     }
 
     public static void testRemoveFirst() {
