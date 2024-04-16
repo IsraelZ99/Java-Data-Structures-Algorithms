@@ -9,7 +9,20 @@ public class Main {
         // testRemoveFirst();
         // testGet();
         // testSet();
-        testInsert();
+        // testInsert();
+        // testRemove();
+    }
+
+    public static void testRemove() {
+        DoublyLinkedList myDLL = new DoublyLinkedList(0);
+        myDLL.append(1);
+        myDLL.append(2);
+
+        System.out.println("*** Removing specific node");
+        System.out.println(myDLL.remove(1).value);
+
+        System.out.println("\n*** Print the list ***");
+        myDLL.printList();
     }
 
     public static void testInsert() {

@@ -153,6 +153,56 @@ class DoublyLinkedList {
     }
 
     /**
+     * Remove a node of the list
+     * This is the best way of delete a node, because is more clean
+     * @param index The index where the node is
+     * @return The node that was deleted
+     */
+    public Node remove(int index) {
+        if (index < 0 && index >= length) return null;
+        if (index == 0) return removeFirst();
+        if (index == length - 1) return removeLast();
+        // Set temp to point to the node that is in the index
+        Node temp = get(index);
+        // This set the arrow of the next node that points to the temp node, to point to the previous node of the temp
+        temp.next.prev = temp.prev;
+        // This set the arrow of the previous node that points to the temp node, to point to the next node of the temp
+        temp.prev.next = temp.next;
+        temp.next = null;
+        temp.prev = null;
+        length--;
+        return temp;
+    }
+
+    /**
+     * Remove a node of the list
+     * This is one of the two implementations
+     * This implementation uses the two-pointer
+     *
+     * @param index The index where the node is
+     * @return The node that was deleted
+     */
+    public Node removeImplementationOne(int index) {
+        if (index < 0 && index >= length) return null;
+        if (index == 0) return removeFirst();
+        if (index == length - 1) return removeLast();
+        // Set temp to point to the node that is in the index
+        Node temp = get(index);
+        // Set before, to point 1 node before of the temp node
+        Node before = temp.prev;
+        // Set after, to point 1 node after of the temp node
+        Node after = temp.next;
+        // Set next property to point the "after" node
+        before.next = after;
+        // Set prev property to point the "before" node
+        after.prev = before;
+        // Unlink the node to delete correctly of the list
+        temp.prev = null;
+        temp.next = null;
+        return temp;
+    }
+
+    /**
      * Remove the first item of the list
      *
      * @return the node that was deleted
