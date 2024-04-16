@@ -8,7 +8,19 @@ public class Main {
         // testPrepend();
         // testRemoveFirst();
         // testGet();
-        testSet();
+        // testSet();
+        testInsert();
+    }
+
+    public static void testInsert() {
+        DoublyLinkedList myDLL = new DoublyLinkedList(1);
+        myDLL.append(3);
+
+        System.out.println("*** Insert a node ***");
+        System.out.println(myDLL.insert(1, 2));
+
+        System.out.println("\n*** Print the list ***");
+        myDLL.printList();
     }
 
     public static void testSet() {

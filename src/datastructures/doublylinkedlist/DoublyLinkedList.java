@@ -68,6 +68,45 @@ class DoublyLinkedList {
     }
 
     /**
+     * Insert new node in specific index on the list
+     *
+     * @param index Index where you want insert the new node
+     * @param value It's the number/value of the new node
+     * @return If it's possible insert the node
+     */
+    public boolean insert(int index, int value) {
+        if (index < 0 && index > length) return false;
+        // If it's required to insert the new node at the beginning of the list
+        // it's best use prepend method
+        if (index == 0) {
+            prepend(value);
+            return true;
+        }
+        // If it's required to insert the new node at the end of the list
+        // it's best use append method
+        if (index == length) {
+            append(value);
+            return true;
+        }
+        // Set before, to point to the node that is 1 index before where you want to insert the new node
+        Node before = get(index - 1);
+        // It's best point after, to the next node of before, because this operation is O(1)
+        // Instead we could use get method, but it is O(n)
+        Node after = before.next;
+        Node newNode = new Node(value);
+        // Point the new node to the before node (previous property) = beforeNode <= newNode
+        newNode.prev = before;
+        // Point the new node to the after node (next property) = newNode => afterNode
+        newNode.next = after;
+        // Point the before node to the new node (next property) = beforeNode => newNode
+        before.next = newNode;
+        // Point the after node to the new node (previous property) = newNode <= afterNode
+        after.prev = newNode;
+        length++;
+        return true;
+    }
+
+    /**
      * Insert node at the end of the list
      *
      * @param value it's the value/number of the node
