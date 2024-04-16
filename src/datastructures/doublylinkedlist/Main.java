@@ -7,7 +7,21 @@ public class Main {
         // testRemoveLast();
         // testPrepend();
         // testRemoveFirst();
-        testGet();
+        // testGet();
+        testSet();
+    }
+
+    public static void testSet() {
+        DoublyLinkedList myDLL = new DoublyLinkedList(11);
+        myDLL.append(3);
+        myDLL.append(23);
+        myDLL.append(7);
+
+        System.out.println("*** Set item ***");
+        System.out.println(myDLL.set(1, 4));
+
+        System.out.println("\n*** Print the list ***");
+        myDLL.printList();
     }
 
     public static void testGet() {

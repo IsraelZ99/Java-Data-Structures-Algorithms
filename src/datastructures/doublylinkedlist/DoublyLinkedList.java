@@ -21,6 +21,24 @@ class DoublyLinkedList {
     }
 
     /**
+     * Set node value at specific index
+     *
+     * @param index Index where is the node
+     * @param value New value of the node
+     * @return If the node was set or not
+     */
+    public boolean set(int index, int value) {
+        // Set temp to point to the node founded
+        Node temp = get(index);
+        // Compare if the temp is pointing to a node
+        if (temp != null) {
+            temp.value = value;
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Get a node by index.
      * To do this, compare if the index that you want to search is in the first half
      * or in the second half to do this seek more efficiently
@@ -29,7 +47,7 @@ class DoublyLinkedList {
      * @return The entire node
      */
     public Node get(int index) {
-        if (length == 0) return null;
+        if (index < 0 && index >= length) return null;
         // Point temp to the start of the list
         Node temp = head;
         // Compare if the index to get is in the first half
