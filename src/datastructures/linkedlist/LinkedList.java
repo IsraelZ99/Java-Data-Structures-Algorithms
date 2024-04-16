@@ -1,4 +1,4 @@
-package linkedlist;
+package datastructures.linkedlist;
 
 class LinkedList {
     private Node head;
