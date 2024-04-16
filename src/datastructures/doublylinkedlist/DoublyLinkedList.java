@@ -42,6 +42,30 @@ class DoublyLinkedList {
         length++;
     }
 
+    /**
+     * Remove the last item of the list
+     * @return the node that was deleted
+     */
+    public Node removeLast() {
+        if (length == 0) return null;
+        // Set temp to point to tail
+        Node temp = tail;
+        // Check if in the list is one item
+        if (length == 1) {
+            tail = null;
+            head = null;
+        } else {
+            // Set tail to point to the previous node
+            tail = tail.prev;
+            // Set tail no point to null, to unlink the last node
+            tail.next = null;
+            // Set temp previous property to point to null, because unlink the last node
+            temp.prev = null;
+        }
+        length--;
+        return temp;
+    }
+
     public void printList() {
         Node temp = head;
         while (temp != null) {
