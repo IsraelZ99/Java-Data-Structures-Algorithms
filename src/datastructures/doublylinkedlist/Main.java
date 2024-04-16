@@ -3,9 +3,23 @@ package datastructures.doublylinkedlist;
 public class Main {
     public static void main(String[] args) {
         // testConstructor();
-        //testAppend();
+        // testAppend();
         // testRemoveLast();
-        testPrepend();
+        // testPrepend();
+        testRemoveFirst();
+    }
+
+    public static void testRemoveFirst() {
+        DoublyLinkedList myDLL = new DoublyLinkedList(2);
+        myDLL.append(1);
+
+        System.out.println("*** Print the list ***");
+        myDLL.printList();
+
+        System.out.println("\n*** Removing nodes ***");
+        System.out.println(myDLL.removeFirst().value);
+        System.out.println(myDLL.removeFirst().value);
+        System.out.println(myDLL.removeFirst());
     }
 
     public static void testPrepend() {

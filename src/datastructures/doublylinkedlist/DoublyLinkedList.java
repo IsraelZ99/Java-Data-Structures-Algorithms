@@ -67,6 +67,31 @@ class DoublyLinkedList {
     }
 
     /**
+     * Remove the first item of the list
+     *
+     * @return the node that was deleted
+     */
+    public Node removeFirst() {
+        if (length == 0) return null;
+        // Set temp node to point head
+        Node temp = head;
+        // Disassociated head and tail
+        if (length == 1) {
+            head = null;
+            tail = null;
+        } else {
+            // Set head, to point to the node after this (now the next node is head)
+            head = head.next;
+            // Set head previous property to point to null (to disassociate the ex-first node)
+            head.prev = null;
+            // Set temp to point to nothing
+            temp.next = null;
+        }
+        length--;
+        return temp;
+    }
+
+    /**
      * Remove the last item of the list
      *
      * @return the node that was deleted
