@@ -2,7 +2,9 @@ package linkedlist;
 
 public class Main {
     public static void main(String[] args) {
-        testReverse();
+        test();
+        // testExamMiddle();
+        // testReverse();
         // testRemove();
         // testInsert();
         // testSet();
@@ -11,6 +13,13 @@ public class Main {
         // testPrepend();
         // testAppend();
         // testRemoveLast();
+    }
+
+    public static void test() {
+        LinkedList myLinkedList = new LinkedList(1);
+        myLinkedList.append(2);
+        myLinkedList.append(3);
+        myLinkedList.append(4);
     }
 
     public static void testRemove() {

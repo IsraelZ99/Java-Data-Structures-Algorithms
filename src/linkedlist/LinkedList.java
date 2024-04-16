@@ -265,4 +265,56 @@ class LinkedList {
     public void getLength() {
         System.out.println("Length: " + length);
     }
+
+    /**
+     * Find the middle node in Array List
+     * @return The middle node
+     */
+    public Node findMiddleNode() {
+        Node fast = head;
+        Node slow = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+    /**
+     * Check if the list has loop => It doesn't have an ending
+     * @return If the list has loop
+     */
+    public boolean hasLoop() {
+        Node fast = head;
+        Node slow = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) return true;
+        }
+        return false;
+    }
+
+    /**
+     * Find the kth end of the list, I mean the "k" node number from the end to the start
+     * @param k The node number
+     * @return The node
+     */
+    public Node findKthFromEnd(int k) {
+        Node slow = head;
+        Node fast = head;
+        // Move fast pointer k steps ahead
+        for (int i = 0; i < k; i++) {
+            if (fast == null) {
+                return null;
+            }
+            fast = fast.next;
+        }
+        // Move both pointers until fast reaches the end
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
 }
