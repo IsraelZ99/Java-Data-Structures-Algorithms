@@ -27,12 +27,17 @@ class Queue {
      * @param value it's the value/number of the node
      */
     public void enqueue(int value) {
+        // Create new node
         Node newNode = new Node(value);
+        // If the length of the Queue is empty, set first and last to point to the new node
         if (length == 0) {
             first = newNode;
             last = newNode;
         } else {
+            // Set last (the last one node enter on to the Queue)
+            // to point the next property to the new node
             last.next = newNode;
+            // Set last, to point to the new node
             last = newNode;
         }
         length++;
@@ -47,12 +52,17 @@ class Queue {
      */
     public Node dequeue() {
         if (length == 0) return null;
+        // Set temp, to point first (the first node that enter on the Queue)
         Node temp = first;
+        // If the Queue is empty, set first and last to null (to free the queue)
         if (length == 1) {
             first = null;
             last = null;
         } else {
+            // Set first to point to the node that is after that
             first = first.next;
+            // Set next property of temp, to point to null
+            // Unlink the node of the Queue
             temp.next = null;
         }
         length--;
