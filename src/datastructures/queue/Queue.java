@@ -19,6 +19,24 @@ class Queue {
         length = 1;
     }
 
+    /**
+     * Enqueue a node on to the queue, for do this is important to remember:
+     * - When you enqueue a node it's at the end of the linked list, because this is O(1)
+     *
+     * @param value it's the value/number of the node
+     */
+    public void enqueue(int value) {
+        Node newNode = new Node(value);
+        if (length == 0) {
+            first = newNode;
+            last = newNode;
+        } else {
+            last.next = newNode;
+            last = newNode;
+        }
+        length++;
+    }
+
     public void printQueue() {
         Node temp = first;
         while (temp != null) {
