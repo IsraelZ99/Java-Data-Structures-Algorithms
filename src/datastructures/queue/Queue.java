@@ -21,7 +21,8 @@ class Queue {
 
     /**
      * Enqueue a node on to the queue, for do this is important to remember:
-     * - When you enqueue a node it's at the end of the linked list, because this is O(1)
+     * - When you enqueue a node => it's the node at the end of the linked list
+     * This operation is O(1)
      *
      * @param value it's the value/number of the node
      */
@@ -35,6 +36,27 @@ class Queue {
             last = newNode;
         }
         length++;
+    }
+
+    /**
+     * Dequeue a node from the queue, for do this is important to remember:
+     * - When you dequeue a node => it's the node at the start of the linked list
+     * This operation is O(1)
+     *
+     * @return The node dequeued
+     */
+    public Node dequeue() {
+        if (length == 0) return null;
+        Node temp = first;
+        if (length == 1) {
+            first = null;
+            last = null;
+        } else {
+            first = first.next;
+            temp.next = null;
+        }
+        length--;
+        return temp;
     }
 
     public void printQueue() {
