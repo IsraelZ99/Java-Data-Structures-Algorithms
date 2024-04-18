@@ -7,6 +7,7 @@ class BinarySearchTree {
 
     /**
      * Insert new node on to the Tree
+     *
      * @param value it's the value/number og the node
      * @return If the new node was insert or not
      */
@@ -50,5 +51,40 @@ class BinarySearchTree {
                 temp = temp.right;
             }
         }
+    }
+
+    /**
+     * Look up a value on the tree
+     *
+     * @param value The value/number to find out
+     * @return If the value was found or not
+     */
+    public boolean contains(int value) {
+        // Check if the tree is empty
+        // This line can comment out, because the next flow works if the
+        // tree is empty too
+        // if (root == null) return false;
+
+        // Set temp to point root
+        Node temp = root;
+        // While temp is not null, can enter to the loop
+        while (temp != null) {
+            // Check if the value is less than temp value
+            if (value < temp.value) {
+                // Set temp to now point to the left side
+                temp = temp.left;
+            }
+            // Check if the value is greater than temp value
+            else if (value > temp.value) {
+                // Set temp to now point to the right side
+                temp = temp.right;
+            }
+            // If the value was found
+            else {
+                return true;
+            }
+        }
+        // If the value was not found, return false
+        return false;
     }
 }
