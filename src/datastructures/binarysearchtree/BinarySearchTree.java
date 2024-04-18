@@ -53,6 +53,29 @@ class BinarySearchTree {
         }
     }
 
+    // TODO: Finish remove method with all cases
+    public boolean remove(int value) {
+        if (root == null) return false;
+        Node temp = root;
+        while (true) {
+            if (value < temp.value) {
+                if (temp.left == null) return false;
+                if (value == temp.left.value) {
+                    temp.left = null;
+                    return true;
+                }
+                temp = temp.left;
+            } else {
+                if (temp.right == null) return false;
+                if (value == temp.right.value) {
+                    temp.left = null;
+                    return true;
+                }
+                temp = temp.right;
+            }
+        }
+    }
+
     /**
      * Look up a value on the tree
      *

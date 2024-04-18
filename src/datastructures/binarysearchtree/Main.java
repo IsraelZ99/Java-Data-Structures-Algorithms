@@ -4,7 +4,23 @@ public class Main {
     public static void main(String[] args) {
         // testConstructor();
         // testInsert();
-        testContains();
+        // testContains();
+        testRemove();
+    }
+
+    public static void testRemove() {
+        BinarySearchTree myBST = new BinarySearchTree();
+
+        myBST.insert(47);
+        myBST.insert(21);
+        myBST.insert(76);
+        myBST.insert(18);
+        myBST.insert(27);
+        myBST.insert(52);
+        myBST.insert(82);
+
+        System.out.println("Removing the node with the number 52: " + myBST.remove(52));
+        System.out.println("Check if the node was remove: " + myBST.root.right.left);
     }
 
     public static void testContains() {
