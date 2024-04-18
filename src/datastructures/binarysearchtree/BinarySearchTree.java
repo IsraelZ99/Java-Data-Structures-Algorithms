@@ -53,24 +53,42 @@ class BinarySearchTree {
         }
     }
 
+    /**
+     * Remove node from the tree
+     * @param value it's the value/number to find and delete
+     * @return If the node was deleted
+     */
     // TODO: Finish remove method with all cases
     public boolean remove(int value) {
+        // Check if the tree is empty
         if (root == null) return false;
+        // Set temp to point root
         Node temp = root;
         while (true) {
+            // Check if the value is less than the value of the temp node
             if (value < temp.value) {
+                // Check if the left side of the temp node is empty
                 if (temp.left == null) return false;
+                // Check if value and the node is on the left side of temp are equals
                 if (value == temp.left.value) {
+                    // Set left side of temp to null, to unlink the node
                     temp.left = null;
                     return true;
                 }
+                // Set temp to point to the node on the left side
                 temp = temp.left;
-            } else {
+            }
+            // Check if the value is greater than the value of the temp node
+            else {
+                // Check if the tight side of the temp node is empty
                 if (temp.right == null) return false;
+                // Check if value and the node is on the right side of temp are equals
                 if (value == temp.right.value) {
-                    temp.left = null;
+                    // Set right side of temp to null, to unlink the node
+                    temp.right = null;
                     return true;
                 }
+                // Set temp to point to the node on the right side
                 temp = temp.right;
             }
         }

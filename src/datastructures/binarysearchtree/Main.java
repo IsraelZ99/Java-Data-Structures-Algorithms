@@ -19,7 +19,7 @@ public class Main {
         myBST.insert(52);
         myBST.insert(82);
 
-        System.out.println("Removing the node with the number 52: " + myBST.remove(52));
+        System.out.println("Removing the node with the number 52: " + myBST.remove(53));
         System.out.println("Check if the node was remove: " + myBST.root.right.left);
     }
 
