@@ -3,7 +3,23 @@ package datastructures.hashtable;
 public class Main {
     public static void main(String[] args) {
 //        testConstructor();
-        testSet();
+//        testSet();
+        testGet();
+    }
+
+    public static void testGet() {
+        HashTable myHashTable = new HashTable();
+
+        System.out.println("*** Adding key-value pairs to the hash table ***");
+        myHashTable.set("nails", 100);
+        myHashTable.set("tile", 50);
+        myHashTable.set("lumber", 80);
+
+        System.out.println("Getting the key value of lumber: " + myHashTable.get("lumber"));
+        System.out.println("Getting the key value of bolts (doesn't exist): " + myHashTable.get("bolts"));
+
+        System.out.println("\n *** Print the hash table ***");
+        myHashTable.printTable();
     }
 
     public static void testSet() {

@@ -21,7 +21,8 @@ class HashTable {
 
     /**
      * Insert new node to specific address (index) on to the hash table
-     * @param key String key, to save on to the hash table, and transform to hash
+     *
+     * @param key   String key, to save on to the hash table, and transform to hash
      * @param value it's the value/number
      */
     public void set(String key, int value) {
@@ -35,13 +36,33 @@ class HashTable {
         } else {
             // Point to the first node that is pointing the index on the hash map
             Node temp = dataMap[index];
-            // While loop, until temp will become the last node of the list
+            // While loop, until temp will arrive to the last node of the list
             while (temp.next != null) {
                 temp = temp.next;
             }
             // Set the last node of the list, to point to the new node
             temp.next = newNode;
         }
+    }
+
+    /**
+     * The method to return the value as from specific key on to the hash table
+     * @param key The key to look up on to the hash table
+     * @return The value of this key, in case of exists otherwise, return 0
+     */
+    public int get(String key) {
+        // Set index to the hash number from the key
+        int index = hash(key);
+        // Set temp, to point to the first node that the index is pointing to
+        Node temp = dataMap[index];
+        // While loop, until temp will become the last node of the list
+        while (temp != null) {
+            // Check if the key of the current node is the same of the key search
+            if (temp.key.equals(key)) return temp.value;
+            // Otherwise set temp, to point to the next node of the list
+            temp = temp.next;
+        }
+        return 0;
     }
 
     /**
