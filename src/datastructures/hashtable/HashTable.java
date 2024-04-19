@@ -20,6 +20,32 @@ class HashTable {
     }
 
     /**
+     * This convert key to hash
+     *
+     * @param key The key you want to convert
+     * @return The hash
+     */
+    private int hash(String key) {
+        int hash = 0;
+        // This contains the key converted into char
+        // For example, the string "hello" is going to
+        // convert to "[h,e,l,l,o]"
+        char[] keyChars = key.toCharArray();
+        // Iterate all the key chars with a for loop
+        for (int iteration = 0; iteration < keyChars.length; iteration++) {
+            // This line is going to convert the char to the ascii number
+            // according to the ascii table
+            int asciiValue = keyChars[iteration];
+            // The operation hash + asciiValue is going hash plus asciiValue according the ascii table
+            // The reason of multiply for 23 is, this is a prime number
+            //   - You can stick any prime number or leave the prime number out altogether
+            // % dataMap.length = This is because, in the case
+            hash = (hash + asciiValue * 23) % dataMap.length;
+        }
+        return hash;
+    }
+
+    /**
      * Print the hash table
      */
     public void printTable() {
