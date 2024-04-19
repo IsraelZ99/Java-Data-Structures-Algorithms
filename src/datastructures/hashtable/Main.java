@@ -18,7 +18,7 @@ public class Main {
         myHashTable.set("tile", 50);
         myHashTable.set("lumber", 80);
 
-        System.out.println("*** Print all the keys");
+        System.out.println("*** Print all the keys ***");
         System.out.println(myHashTable.keys());
     }
 
