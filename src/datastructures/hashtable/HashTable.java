@@ -20,6 +20,31 @@ class HashTable {
     }
 
     /**
+     * Insert new node to specific address (index) on to the hash table
+     * @param key String key, to save on to the hash table, and transform to hash
+     * @param value it's the value/number
+     */
+    public void set(String key, int value) {
+        // Set index to the hash number from the key
+        int index = hash(key);
+        Node newNode = new Node(key, value);
+        // Check if in index is point to a node (exist any node)
+        if (dataMap[index] == null) {
+            // If there isn't node, point the index to the new node
+            dataMap[index] = newNode;
+        } else {
+            // Point to the first node that is pointing the index on the hash map
+            Node temp = dataMap[index];
+            // While loop, until temp will become the last node of the list
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            // Set the last node of the list, to point to the new node
+            temp.next = newNode;
+        }
+    }
+
+    /**
      * This convert key to hash
      *
      * @param key The key you want to convert
