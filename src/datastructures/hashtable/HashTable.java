@@ -39,9 +39,13 @@ class HashTable {
             // The operation hash + asciiValue is going hash plus asciiValue according the ascii table
             // The reason of multiply for 23 is, this is a prime number
             //   - You can stick any prime number or leave the prime number out altogether
-            // % dataMap.length = This is because, in the case
+            // % dataMap.length = The reason of this because, the reminder of the operation
+            // is going to have zero at the lowest and length - 1 as the highest number reminder
+            // The equation is always going to return a number that is between
+            // the address space (index => from 0 to the length - 1)
             hash = (hash + asciiValue * 23) % dataMap.length;
         }
+        // Return a number between address space =>  zero to length - 1
         return hash;
     }
 
