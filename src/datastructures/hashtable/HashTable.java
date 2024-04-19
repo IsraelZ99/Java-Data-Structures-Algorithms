@@ -1,5 +1,7 @@
 package datastructures.hashtable;
 
+import java.util.ArrayList;
+
 class HashTable {
 
     // The size of the array using for the address space
@@ -34,7 +36,7 @@ class HashTable {
             // If there isn't node, point the index to the new node
             dataMap[index] = newNode;
         } else {
-            // Point to the first node that is pointing the index on the hash map
+            // Point to the first node that is pointing the index on the hash table
             Node temp = dataMap[index];
             // While loop, until temp will arrive to the last node of the list
             while (temp.next != null) {
@@ -47,6 +49,7 @@ class HashTable {
 
     /**
      * The method to return the value as from specific key on to the hash table
+     *
      * @param key The key to look up on to the hash table
      * @return The value of this key, in case of exists otherwise, return 0
      */
@@ -63,6 +66,27 @@ class HashTable {
             temp = temp.next;
         }
         return 0;
+    }
+
+    /**
+     * Get all the keys in the hash table
+     *
+     * @return All the keys that exists in the hash table
+     */
+    public ArrayList<String> keys() {
+        ArrayList<String> allKeys = new ArrayList<>();
+        for (int iteration = 0; iteration < dataMap.length; iteration++) {
+            // Set temp, to point to the first node that the index is pointing to
+            Node temp = dataMap[iteration];
+            // While loop, until temp will become the last node of the list
+            while (temp != null) {
+                // Add the key to the array list
+                allKeys.add(temp.key);
+                // Set temp, to point to the next node
+                temp = temp.next;
+            }
+        }
+        return allKeys;
     }
 
     /**

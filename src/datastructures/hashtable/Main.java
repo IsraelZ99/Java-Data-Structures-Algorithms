@@ -4,7 +4,22 @@ public class Main {
     public static void main(String[] args) {
 //        testConstructor();
 //        testSet();
-        testGet();
+//        testGet();
+        testKeys();
+    }
+
+    public static void testKeys() {
+        HashTable myHashTable = new HashTable();
+
+        System.out.println("*** Adding key-value pairs to the hash table ***");
+        myHashTable.set("paint", 20);
+        myHashTable.set("bolts", 40);
+        myHashTable.set("nails", 100);
+        myHashTable.set("tile", 50);
+        myHashTable.set("lumber", 80);
+
+        System.out.println("*** Print all the keys");
+        System.out.println(myHashTable.keys());
     }
 
     public static void testGet() {
