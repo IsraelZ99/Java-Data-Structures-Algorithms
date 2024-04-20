@@ -13,6 +13,7 @@ public class Graph {
 
     /**
      * Add new vertex to the adjacency list
+     *
      * @param vertex The name of the new vertex
      * @return If the vertex was insert or not
      */
@@ -26,7 +27,22 @@ public class Graph {
         return false;
     }
 
-//    public boolean addEdge(String vertex1, String vertex2) {
-//
-//    }
+    /**
+     * Add edge between two vertices (bidirectional relationship)
+     *
+     * @param vertex1 The name of the first vertex will have edge between the other vertex
+     * @param vertex2 The name of the second vertex will have edge between the other vertex
+     * @return If it was created the edges between the two vertices
+     */
+    public boolean addEdge(String vertex1, String vertex2) {
+        // Check if the two vertices exist on to the adjacency list
+        if (adjList.get(vertex1) != null && adjList.get(vertex2) != null) {
+            // Add edge between the vertex 1 with vertex 2
+            adjList.get(vertex1).add(vertex2);
+            // Add edge between the vertex 2 with vertex 1
+            adjList.get(vertex2).add(vertex1);
+            return true;
+        }
+        return false;
+    }
 }
