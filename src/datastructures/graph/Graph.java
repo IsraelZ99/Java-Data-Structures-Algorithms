@@ -47,4 +47,23 @@ public class Graph {
         }
         return false;
     }
+
+    /**
+     * Remove edge between two vertices (the vertices have bidirectional relationship)
+     * @param vertex1 The name of the first vertex have edge between the other vertex
+     * @param vertex2 The name of the second vertex have edge between the other vertex
+     * @return If the edge was deleted between the two vertices
+     */
+    public boolean removeEdge(String vertex1, String vertex2) {
+        // Check if the two vertices exist on to the adjacency list
+        if (adjList.get(vertex1) != null && adjList.get(vertex2) != null) {
+            // Remove the edge between vertex 1 and vertex 2
+            // First get the array list of the vertex, and then remove the edge between the vertex 2
+            adjList.get(vertex1).remove(vertex2);
+            // First get the array list of the vertex, and then remove the edge between the vertex 1
+            adjList.get(vertex2).remove(vertex1);
+            return true;
+        }
+        return false;
+    }
 }
