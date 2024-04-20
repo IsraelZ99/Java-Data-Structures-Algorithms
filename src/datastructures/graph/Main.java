@@ -7,7 +7,7 @@ public class Main {
 
     public static void testAddVertex() {
         Graph myGraph = new Graph();
-        myGraph.addVertex("A");
+        System.out.println("Adding new vertex: " + myGraph.addVertex("A"));
 
         myGraph.printGraph();
     }
