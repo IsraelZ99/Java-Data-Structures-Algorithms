@@ -38,8 +38,10 @@ public class Graph {
         // Check if the two vertices exist on to the adjacency list
         if (adjList.get(vertex1) != null && adjList.get(vertex2) != null) {
             // Add edge between the vertex 1 with vertex 2
+            // First get the array list of the vertex, and then add the edge on to the list
             adjList.get(vertex1).add(vertex2);
             // Add edge between the vertex 2 with vertex 1
+            // First get the array list of the vertex, and then add the edge on to the list
             adjList.get(vertex2).add(vertex1);
             return true;
         }
