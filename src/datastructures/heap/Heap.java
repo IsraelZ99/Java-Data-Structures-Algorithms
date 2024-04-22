@@ -21,6 +21,7 @@ public class Heap {
 
     /**
      * Creates new list to return a copy of the heap
+     *
      * @return new array list that contains a copy of the heap
      */
     public List<Integer> getHeap() {
@@ -28,7 +29,28 @@ public class Heap {
     }
 
     /**
+     * Insert new value on to the heap
+     * @param value it's the number/value of the node
+     */
+    public void insert(int value) {
+        // First, add the value at the on the array list
+        heap.add(value);
+        // Set current, to store the last index of the array list
+        // In this index where the value was inserted
+        int current = heap.size() - 1;
+        // While loop, until current will be greater than zero and
+        // the value that is in current is greater than the parent value of current
+        while (current > 0 && heap.get(current) > heap.get(parent(current))) {
+            // Swap the current with his parent (this means that current is greater than his parent)
+            swap(current, parent(current));
+            // Set current, to now store the index where the current value was moved (in the last step)
+            current = parent(current);
+        }
+    }
+
+    /**
      * Get the left child from specific parent
+     *
      * @param index The index of the parent
      * @return The index where the left child is
      */
@@ -42,6 +64,7 @@ public class Heap {
 
     /**
      * Get the right child from specific parent
+     *
      * @param index The index of the parent
      * @return The index where the right child is
      */
@@ -55,6 +78,7 @@ public class Heap {
 
     /**
      * Get the parent from specific child on to the heap (array list)
+     *
      * @param index The index of the child
      * @return The index where the parent is
      */
@@ -64,5 +88,11 @@ public class Heap {
         // This minus one is because we use the index of zero
         // of the array list
         return (index - 1) / 2;
+    }
+
+    public void swap(int index1, int index2) {
+        int temp = heap.get(index1);
+        heap.set(index1, heap.get(index2));
+        heap.set(index2, temp);
     }
 }
