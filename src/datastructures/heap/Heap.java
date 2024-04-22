@@ -30,6 +30,7 @@ public class Heap {
 
     /**
      * Insert new value on to the heap
+     *
      * @param value it's the number/value of the node
      */
     public void insert(int value) {
@@ -45,6 +46,69 @@ public class Heap {
             swap(current, parent(current));
             // Set current, to now store the index where the current value was moved (in the last step)
             current = parent(current);
+        }
+    }
+
+    /**
+     * Remove the top item of heap
+     * Remember: You can only remove the top item
+     * When you remove the top item , the last value of the heap is replaced instead of
+     * @return The value that has the removed node
+     */
+    public Integer remove() {
+        // Check if the array list is empty
+        if (heap.size() == 0) return null;
+        // Check if the size of the array list is 1, to only remove the node
+        if (heap.size() == 1) return heap.remove(0);
+
+        // Set max value to store the value has the top of the heap
+        int maxValue = heap.get(0);
+        // Set the value of the index 0 of the array list, to store the last value
+        // of the list
+        heap.set(0, heap.remove(heap.size() - 1));
+        // Sink down the new value on the index 0 (to have a validate heap)
+        sinkDown(0);
+        // Return the value was deleted on the heap
+        return maxValue;
+    }
+
+    /**
+     * Sink down specific value on to the heap, to have valid it
+     * @param index The index you want to sink down on to the heap
+     */
+    public void sinkDown(int index) {
+        // Set max index to store the index
+        int maxIndex = index;
+        // While loop, until has a return
+        while (true) {
+            // Set left index, to store the left child index of the max index
+            int leftIndex = leftChild(maxIndex);
+            // Set right index, to store the right child index of the max index
+            int rightIndex = rightChild(maxIndex);
+
+            // Check that:
+            // - The left index is not outside the range of the last index in the arraylist
+            // - The left child value is greater than the value at max index
+            if (leftIndex < heap.size() && heap.get(leftIndex) > heap.get(maxIndex)) {
+                maxIndex = leftIndex;
+            }
+            // Check that:
+            // - The right index is not outside the range of the last index in the arraylist
+            // - The right child value is greater than the value at max index
+            if (rightIndex < heap.size() && heap.get(rightIndex) > heap.get(maxIndex)) {
+                maxIndex = rightIndex;
+            }
+
+            // Check if max index is not equals index
+            if (maxIndex != index) {
+                // Swap the index and max index
+                swap(index, maxIndex);
+                // Set index to store max index, now
+                index = maxIndex;
+            } else {
+                return;
+            }
+
         }
     }
 

@@ -2,7 +2,32 @@ package datastructures.heap;
 
 public class Main {
     public static void main(String[] args) {
-        testInsert();
+        // testInsert();
+        testRemove();
+    }
+
+    public static void testRemove() {
+        Heap myHeap = new Heap();
+        myHeap.insert(95);
+        myHeap.insert(75);
+        myHeap.insert(80);
+        myHeap.insert(55);
+        myHeap.insert(60);
+        myHeap.insert(50);
+        myHeap.insert(65);
+
+        System.out.println("*** Print the heap ***");
+        System.out.println(myHeap.getHeap());
+
+        System.out.println("\n*** Remove the top item ***");
+        System.out.println(myHeap.remove());
+        System.out.println("*** Print the heap ***");
+        System.out.println(myHeap.getHeap());
+
+        System.out.println("\n*** Remove the top item ***");
+        System.out.println(myHeap.remove());
+        System.out.println("*** Print the heap ***");
+        System.out.println(myHeap.getHeap());
     }
 
     public static void testInsert() {
