@@ -55,6 +55,7 @@ class BinarySearchTree {
 
     /**
      * Remove node from the tree
+     *
      * @param value it's the value/number to find and delete
      * @return If the node was deleted
      */
@@ -127,5 +128,45 @@ class BinarySearchTree {
         }
         // If the value was not found, return false
         return false;
+    }
+
+    /**
+     * Recursive method to check if a value does exist on the tree
+     * @param currentNode The node which is going used to compare with the value looked up
+     * @param value The value/number to find out
+     * @return If the value exists on the tree
+     */
+    private boolean rContains(Node currentNode, int value) {
+        // Check if the node is null
+        // This means, or doesn't exist the value on the tree or the tree is empty
+        if (currentNode == null) return false;
+        // Check if the value of the node is equals of the value looked up
+        if (currentNode.value == value) return true;
+
+        // Check if the value looked up is less than the current node
+        // This, to know if the search is going to continue on the left side
+        if (value < currentNode.value) {
+            // Create new instance of the rContains method
+            // In this we pass the node that is on left side on the currentNode
+            return rContains(currentNode.left, value);
+        }
+        // If the value looked up is greater than the current node
+        // This, to know if the search is going to continue on the right side
+        else {
+            // Create new instance of the rContains method
+            // In this we pass the node that is on right side on the currentNode
+            return rContains(currentNode.right, value);
+        }
+    }
+
+    /**
+     * The overloading method that is call to check if the tree
+     * contains specific value
+     * This method call the rContains method
+     * @param value The value/number to find out
+     * @return If the value does exist on the tree
+     */
+    public boolean rContains(int value) {
+        return rContains(root, value);
     }
 }
