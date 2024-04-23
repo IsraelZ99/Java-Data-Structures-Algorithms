@@ -118,7 +118,7 @@ public class Heap {
      * @param index The index of the parent
      * @return The index where the left child is
      */
-    public int leftChild(int index) {
+    private int leftChild(int index) {
         // The math multiply 2 by the parent index
         // plus one
         // This plus one is because we use the index of zero
@@ -132,7 +132,7 @@ public class Heap {
      * @param index The index of the parent
      * @return The index where the right child is
      */
-    public int rightChild(int index) {
+    private int rightChild(int index) {
         // The math multiply 2 by the parent index
         // plus two
         // This plus one is because we use the index of zero
@@ -146,17 +146,24 @@ public class Heap {
      * @param index The index of the child
      * @return The index where the parent is
      */
-    public int parent(int index) {
+    private int parent(int index) {
         // The math is index minus one
         // divide by two
         // This minus one is because we use the index of zero
         // of the array list
         return (index - 1) / 2;
     }
-
-    public void swap(int index1, int index2) {
+    /**
+     * Swap two values
+     * @param index1 The index where is the value you want to change to the index 2
+     * @param index2 The index where is the value you want to change the index 1
+     */
+    private void swap(int index1, int index2) {
+        // Set temp to get the value of the index 1
         int temp = heap.get(index1);
+        // Set the index 1 to put the value of the index 2
         heap.set(index1, heap.get(index2));
+        // Set the index 2 to put the value of the index 1
         heap.set(index2, temp);
     }
 }
