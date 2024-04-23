@@ -6,7 +6,22 @@ public class Main {
         // testInsert();
         // testContains();
         // testRemove();
-        testRecursiveContains();
+        // testRecursiveContains();
+        testRecursiveInsert();
+    }
+
+    public static void testRecursiveInsert() {
+        BinarySearchTree myBST = new BinarySearchTree();
+
+        System.out.println("*** Inserting the 2 node ***");
+        myBST.rInsert(2);
+        myBST.rInsert(1);
+        myBST.rInsert(3);
+
+        System.out.println("\nRoot: " + myBST.root.value);
+        System.out.println("\nRoot->Left: " + myBST.root.left.value);
+        System.out.println("\nRoot->Right: " + myBST.root.right.value);
+
     }
 
     public static void testRecursiveContains() {

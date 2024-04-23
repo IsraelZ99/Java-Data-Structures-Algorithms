@@ -131,9 +131,55 @@ class BinarySearchTree {
     }
 
     /**
+     * Recursive method to insert new node in the tree
+     *
+     * @param currentNode The node which is going used to compare the new value.
+     *                    Doing this, is to know if the new node is going to be
+     *                    on the left side or right side
+     * @param value       The value/number to insert in the tree
+     * @return The last node, which will be the root at the end
+     * On the other hand, will return the node which was compared the new value
+     */
+    private Node rInsert(Node currentNode, int value) {
+        // Check if the node is null
+        // This means, the recursive method reach an empty space to insert the new node
+        if (currentNode == null) return new Node(value);
+
+        // Check if the value is less than the current node value
+        // This means, that the new node is going to be inserted on the left side
+        if (value < currentNode.value) {
+            // Set current node left property to point to the return of
+            // the rInsert new instance (recursive)
+            // In this we pass the left node of the current node and the value we want to insert
+            currentNode.left = rInsert(currentNode.left, value);
+        }
+        // Check if the value is greater than the current node value
+        // This means, that the new node is going to be inserted on the right side
+        else if (value > currentNode.value) {
+            // Set current node right property to point to the return of
+            // the rInsert new instance (recursive)
+            // In this we pass the right node of the current node and the value we want to insert
+            currentNode.right = rInsert(currentNode.right, value);
+        }
+        return currentNode;
+    }
+
+    /**
+     * The overloading method that is call to insert new value on to the tree
+     * This method call the rInsert method
+     *
+     * @param value The value/number to insert
+     */
+    public void rInsert(int value) {
+        if (root == null) root = new Node(value);
+        rInsert(root, value);
+    }
+
+    /**
      * Recursive method to check if a value does exist on the tree
+     *
      * @param currentNode The node which is going used to compare with the value looked up
-     * @param value The value/number to find out
+     * @param value       The value/number to find out
      * @return If the value exists on the tree
      */
     private boolean rContains(Node currentNode, int value) {
@@ -163,6 +209,7 @@ class BinarySearchTree {
      * The overloading method that is call to check if the tree
      * contains specific value
      * This method call the rContains method
+     *
      * @param value The value/number to find out
      * @return If the value does exist on the tree
      */
