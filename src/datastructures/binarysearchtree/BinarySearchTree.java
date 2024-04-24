@@ -176,6 +176,88 @@ class BinarySearchTree {
     }
 
     /**
+     * Recursive method to delete a node on to the tree by value
+     *
+     * @param currentNode The node which going to compare if the value looked up
+     *                    is greater o less than
+     * @param value       The value to delete on the tree
+     * @return As recursion null if the node was found to unlink from the tree
+     * If the node wasn't found will return null and the tree is going to be equals
+     */
+    private Node rDeleteNode(Node currentNode, int value) {
+        // Check if the recursion will arrive to the finish of the tree
+        // This means, the node to delete wasn't found
+        if (currentNode == null) return null;
+
+        // Check if the value to delete is less than the value of the current node
+        if (value < currentNode.value) {
+            // Create new instance of the rDeleteNode method
+            // In this we pass the node that is on left side on the currentNode
+            // and is going to assign to the left side
+            currentNode.left = rDeleteNode(currentNode.left, value);
+        }
+        // Check if the value to delete is greater than the value of the current node
+        else if (value > currentNode.value) {
+            // Create new instance of the rDeleteNode method
+            // In this we pass the node that is on right side on the currentNode
+            // and is going to assign to the right side
+            currentNode.right = rDeleteNode(currentNode.right, value);
+        }
+        // This means the value was found on the tree
+        else {
+            // Check if the founded node is a leaf (it hasn't nodes on the left and right side
+            if (currentNode.left == null && currentNode.right == null) {
+                // Unlink the founded node from the tree
+                return null;
+            }
+            // Check if the founded node has one child on the right side, but not on the left side
+            else if (currentNode.left == null) {
+                // Set current node to point to the child on the right side
+                currentNode = currentNode.right;
+            }
+            // Check if the founded node has one child on the left side, but not on the right side
+            else if (currentNode.right == null) {
+                // Set current node to point to the child on the left side
+                currentNode = currentNode.left;
+            }
+            // The node have children on the right and left side
+            // To delete node with 2 children, it's necessary store the minimum value
+            // on the right side subtree, into the node with the same value looked up
+            // and after delete this minimum value node
+            else {
+                // Set subTreeMin to store the minimum value that is on the right side of the current node
+                int subTreeMin = minValue(currentNode.right);
+                // Set current node value to now store the minimum value
+                currentNode.value = subTreeMin;
+                // Set current node, to now point to the node will be return after unlink the minimum node
+                currentNode.right = rDeleteNode(currentNode.right, subTreeMin);
+            }
+        }
+        return currentNode;
+    }
+
+    /**
+     * Find the minimum value on the tree
+     *
+     * @param currentNode The node where you want to start the find for minimum value
+     * @return The minimum value
+     */
+    private int minValue(Node currentNode) {
+        // On the left side always be the minimum value of the tree
+        // While loop, until the node point to null on the left side
+        // this means that we arrive at the end of the tree
+        while (currentNode.left != null) {
+            // Set current node, to point to the node on the left side
+            currentNode = currentNode.left;
+        }
+        return currentNode.value;
+    }
+
+    public void rDeleteNode(int value) {
+        rDeleteNode(root, value);
+    }
+
+    /**
      * Recursive method to check if a value does exist on the tree
      *
      * @param currentNode The node which is going used to compare with the value looked up

@@ -7,7 +7,32 @@ public class Main {
         // testContains();
         // testRemove();
         // testRecursiveContains();
-        testRecursiveInsert();
+        // testRecursiveInsert();
+        testRecursiveDelete();
+    }
+
+    public static void testRecursiveDelete() {
+        BinarySearchTree myBST = new BinarySearchTree();
+
+        myBST.insert(2);
+        myBST.insert(1);
+        myBST.insert(3);
+        /*
+                  2
+                 / \
+                1   3
+         */
+        System.out.println("\nRoot: " + myBST.root.value);
+        System.out.println("Root->Left: " + myBST.root.left.value);
+        System.out.println("Root>Right: " + myBST.root.right.value);
+
+        System.out.println("\n*** Deleting 2 node ***");
+        myBST.rDeleteNode(2);
+        System.out.println("\nRoot: " + myBST.root.value);
+        System.out.println("Root->Left: " + myBST.root.left.value);
+        System.out.println("Root>Right: " + myBST.root.right);
+
+
     }
 
     public static void testRecursiveInsert() {
