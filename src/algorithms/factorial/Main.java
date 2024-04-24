@@ -1,4 +1,4 @@
-package datastructures.recursion.factorial;
+package algorithms.factorial;
 
 public class Main {
     public static void main(String[] args) {
