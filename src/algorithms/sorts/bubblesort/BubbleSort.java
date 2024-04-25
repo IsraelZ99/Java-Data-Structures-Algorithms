@@ -11,7 +11,7 @@ public class BubbleSort {
      * if it's true, the greatest value is going to pass to the right side
      * and the less value is pass to the left side
      * All of this, to sort the greatest value first, at the end of the array
-     * @param array
+     * @param array The array you want sort
      */
     public static void bubbleSort(int[] array) {
         // For loop, in each iteration going to lock one by one of the last index
