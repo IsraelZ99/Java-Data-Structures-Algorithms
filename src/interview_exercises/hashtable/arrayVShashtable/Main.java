@@ -1,4 +1,4 @@
-package interviews.hashtable.arrayVShashtable;
+package interview_exercises.hashtable.arrayVShashtable;
 
 import java.util.HashMap;
 
